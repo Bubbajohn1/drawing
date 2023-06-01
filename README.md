@@ -1,2 +1,2 @@
-# drawing
-a drawing lib for roblox
+# vamp drawing library
+a drawing library for roblox
