@@ -1,4 +1,4 @@
-a drawing library for roblox
+a drawing library for roblox made for people like me who cant figure out synapse x drawing lib.
 
 
 ## getting started 
