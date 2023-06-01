@@ -11,7 +11,7 @@ a drawing library for roblox made for people like me who cant figure out synapse
 * 3: built in utility
 
 ## getting started 
-import it to your lua script by pasting this somewhere:
+import it to your script by pasting this somewhere:
 ```lua
 local drawing = loadstring(game:HttpGet("https://raw.githubusercontent.com/Bubbajohn1/vamp.drawing/main/main.lua"))
 ```
