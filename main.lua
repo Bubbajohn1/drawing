@@ -1,12 +1,18 @@
 local drawing = {
     screen_instance = nil,
+
+
     drawings = {},
+    singals = {},
+    utility = {},
+
+
     instance = {},
     Fonts = {
-        [0] = nil,
+        [0] = Enum.Font.Roboto,
         [1] = Enum.Font.Arial,
         [2] = Enum.Font.Code,
-        [3] = Enum.Font.Roboto
+        [3] = Enum.Font.RobotoMono
     }
 }
 -- idk what index does but it does somethingn
@@ -43,9 +49,9 @@ function drawing.new(type, properties)
 
     local options = {
         ["line"] = function()
-            local thickness = properties.thickness or 1
-            local to = properties.to
-            local from = properties.from
+            local thickness: number = properties.thickness or 1
+            local to: Vector2 = properties.to
+            local from: Vector2 = properties.from
 
             if from == nil or to == nil then
                 return error("[ERROR]: no from or to given")
@@ -67,7 +73,7 @@ function drawing.new(type, properties)
                 Size = UDim2.new(0, thickness, 0, getValues().size),
                 BorderSizePixel = 0,
                 Visible = visible,
-                Transparency = transparency,
+                BackgroundTransparency = transparency,
                 Rotation = getValues().rotation,
                 Position = UDim2.new(0, from.x, 0, from.y),
                 ZIndex = zindex,
@@ -94,9 +100,64 @@ function drawing.new(type, properties)
         end,
 
         ["text"] = function()
-            local property_font = properties.Font
-            
-            local text_font = drawing.Fonts[property_font]
+            local text: string = properties.text or "label"
+            local size: number = properties.size or 16
+            local center: boolean = properties.center or false
+            local outline: boolean = properties.outline or false
+            local outline_color: Color3 = properties.outline_color or Color3.fromRGB(0, 0, 0)
+
+            local position: Vector2 = properties.position
+            local textbounds: Vector2 = properties.textbounds or Vector2.new(100, 100)
+            local text_font: Font = drawing.Fonts[properties.font]
+
+            if not position then
+                return error("[ERROR]: No Position given.")
+            elseif not textbounds then
+                return error("[ERROR]: No Textbounds given.")
+            elseif not text_font then 
+                return error("[ERROR]: font: " .. tostring(properties.font) .. " is not a valid font or there was an error finding the font.")
+            end
+
+            local text_instance: TextLabel = drawing.instance.new("TextLabel", {
+                Parent = drawing.screen_instance,
+                Text = text,
+                TextSize = size,
+                TextColor3 = color,
+                Size = UDim2.new(0, textbounds.X, 0, textbounds.Y),
+                TextStrokeColor3 = outline_color,
+                Font = text_font,
+                BackgroundTransparency = 1,
+                Position = UDim2.new(0, position.X, 0, position.Y),
+                ZIndex = zindex,
+                
+                Visible = visible
+            })
+
+            if center then
+                text_instance.TextXAlignment = Enum.TextXAlignment.Center
+            end
+
+            if outline then
+                text_instance.TextStrokeTransparency = 0
+            end
+
+            table.insert(drawing.drawings, {
+                type = "text",
+                properties = properties,
+                instance = text_instance
+            })
+
+            local a = {}
+
+            function a:Remove()
+                text_instance:Destroy()
+            end
+
+            return {
+                instance = text_instance,
+                remove = a,
+                properties = properties
+            }
         end,
 
         ["image"] = function()
@@ -141,6 +202,14 @@ drawing.new("line", {
 
     from = Vector2.new(100, 100),
     to = Vector2.new(200, 200)
+})
+
+drawing.new("text", {
+    font = 2,
+    outline = true,
+    size = 16,
+    textbounds = Vector2.new(100, 100),
+    position = Vector2.new(20, 20)
 })
 
 
