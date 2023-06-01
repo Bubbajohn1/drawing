@@ -1,5 +1,5 @@
-a drawing library for roblox made for people like me who cant figure out synapse x drawing lib.
-this is basically just the synapse x drawing lib but made with roblox gui stuff
+##### a drawing library for roblox made for people like me who cant figure out synapse x drawing lib.
+##### this is basically just the synapse x drawing lib but made with roblox gui stuff
 
 ## why use this over other drawing libs?
 * 1: Its easier to understand
