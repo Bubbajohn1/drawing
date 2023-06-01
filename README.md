@@ -44,3 +44,40 @@ drawing.new("line", {
     to = Vector2.new(200, 200)
 })
 ```
+### text
+
+#### Fonts:
+* 0 Roboto
+* 1 Arial
+* 2 Code
+* 3 RobotoMono
+
+```lua
+drawing.new("text", {
+    visible       -- bool       default: true
+    color         -- Color3     default: Color3.fromRGB(255,255,255)
+    zindex        -- i32/number default: 0
+    transparency  -- i32/number default: 0
+    text          -- string     default: "label"
+    size          -- i32/number default 16
+    center        -- bool       default false
+    outline       -- bool       default false
+    outline_color -- Color3     default Color3.fromRGB(0, 0, 0)
+        
+    position      -- Vector2    NEEDED (no default)
+    textbounds    -- Vector2.   NEEDED (no default)
+    font          -- i32/number NEEDED (no default)
+})
+```
+
+#### example
+```lua
+drawing.new("text", {
+    text = "hello world",
+    font = 2,
+    outline = true,
+    size = 16,
+    textbounds = Vector2.new(100, 100),
+    position = Vector2.new(20, 20)
+})
+```
