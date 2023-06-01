@@ -12,7 +12,7 @@ local drawing = loadstring(game:HttpGet("https://raw.githubusercontent.com/Bubba
 ```lua
 drawing.new("line", {
     visible      -- bool       default: true
-    collor       -- Color3     default: Color3.fromRGB(255,255,255)
+    color        -- Color3     default: Color3.fromRGB(255,255,255)
     zindex       -- i32/number default: 0
     thickness    -- i32/number default: 1
     transparency -- i32/number default: 0
@@ -26,10 +26,11 @@ drawing.new("line", {
 ```lua
 drawing.new("line", {
     visible = true,
+    color = Color3.fromRGB(200, 0, 0) -- dark red
     zindex = 0,
     thickness = 1,
     transparency = 0,
-    color = Color3.fromRGB(200, 0, 0), -- red
+
 
     from = Vector2.new(100, 100),
     to = Vector2.new(200, 200)
