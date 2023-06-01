@@ -31,7 +31,6 @@ drawing.new("line", {
     thickness = 1,
     transparency = 0,
 
-
     from = Vector2.new(100, 100),
     to = Vector2.new(200, 200)
 })
