@@ -3,7 +3,7 @@ a drawing library for roblox made for people like me who cant figure out synapse
 ## why use this over synapse x drawing lib?
 * 1: Its easier to understand
 * 2: Its built with more features
-* 3: uhhhh because
+* 3: idk
 
 ## getting started 
 import it to your lua script by pasting this somewhere:
