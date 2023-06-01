@@ -5,6 +5,10 @@ a drawing library for roblox made for people like me who cant figure out synapse
 * 2: Its built with more features
 * 3: idk
 
+## features
+* 1: table to store all drawings, hidden objects, and signals
+* 2: ...
+
 ## getting started 
 import it to your lua script by pasting this somewhere:
 ```lua
