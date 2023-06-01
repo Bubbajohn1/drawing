@@ -8,7 +8,7 @@ a drawing library for roblox made for people like me who cant figure out synapse
 ## features
 * 1: table to store all drawings, hidden objects, and signals
 * 2: built in signal support
-* 3: build in utility
+* 3: built in utility
 
 ## getting started 
 import it to your lua script by pasting this somewhere:
